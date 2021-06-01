@@ -82,9 +82,15 @@ def calculate(indicators, screener, symbol, exchange, interval):
     computed_oscillators, computed_ma = {}, {}
 
     # RECOMMENDATIONS
-    recommend_oscillators = Compute.Recommend(indicators[0])
-    recommend_summary = Compute.Recommend(indicators[1])
-    recommend_moving_averages = Compute.Recommend(indicators[2])
+    recommend_oscillators = "NEUTRAL"
+    recommend_summary = "NEUTRAL"
+    recommend_moving_averages = "NEUTRAL"
+    if indicators[0] is not None:
+        recommend_oscillators = Compute.Recommend(indicators[0])
+    if indicators[1] is not None:
+        recommend_summary = Compute.Recommend(indicators[1])
+    if indicators[2] is not None:
+        recommend_moving_averages = Compute.Recommend(indicators[2])
 
     # OSCILLATORS
     # RSI (14)
